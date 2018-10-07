@@ -1,10 +1,10 @@
 defmodule Cards do
 	@moduledoc """
-		Provides a method for creating and handling a deck of cards
+	Provides a method for creating and handling a deck of cards
 	"""
 
 	@doc """
-		Returns a list of strings representing a deck of playing cards
+	Returns a list of strings representing a deck of playing cards
 	"""
 	def create_deck do
 		values = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
@@ -18,15 +18,24 @@ defmodule Cards do
 		Enum.shuffle(deck)
 	end
 
+	@doc """
+	Determines whether deck contains a specific card.
+
+	## Example
+
+		iex> deck = Cards.create_deck
+		iex> Cards.contains?(deck, "Queen of Hearts")
+		true
+
+	"""
 	def contains?(deck, card) do
 		Enum.member?(deck, card)
 	end
 
 	@doc """
-		Divides a deck into a hand and the remainder of the deck. The `hand_size` argument indicates how
-		many cards should be in the hand.
+		Divides a deck into a hand and the remainder of the deck. The `hand_size` argument indicates how many cards should be in the hand.
 
-		## Examples
+		## Example
 
 			iex> deck = Cards.create_deck
 			iex> {hand, deck} = Cards.deal(deck, 1)
